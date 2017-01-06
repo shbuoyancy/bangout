@@ -1,7 +1,8 @@
 # pylint: disable=missing-docstring
 
 from lettuce import step, world
-from nose.tools import assert_equal, assert_in
+from nose.tools import assert_equal, assert_in, assert_true
+
 
 
 @step('Navigate to (.*)')
@@ -72,8 +73,8 @@ def check_fragment_in_title(step, fragment):
 
 @step('See title (.*)')
 def check_title(step, title):
-    assert_equal(
-        title,
-        world.browser.title,
+    title = '%s |' % title
+    assert_true(
+        world.browser.title.startswith(title),
         'title should be %s, got %s' % (title, world.browser.title)
     )

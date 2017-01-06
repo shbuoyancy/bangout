@@ -47,6 +47,7 @@ def find_elements(attribute_value, attribute=None, element_name=None):
     else:
         return world.browser.find_elements_by_xpath(attribute_value)
 
+
 @world.absorb
 def find_element(attribute_value, attribute=None, element_name=None):
     elements = find_elements(attribute_value, attribute, element_name)
